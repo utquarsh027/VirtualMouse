@@ -26,14 +26,13 @@ while True:
                     cv2.circle(img=frame,center=(x,y),radius=10,color=(0,255,255))
                     index_X=screen_width/frame_width*x
                     index_Y=screen_height/frame_height*y
+                    pyg.moveTo(index_X,index_y)
                 if id==4:
                     cv2.circle(img=frame,center=(x,y),radius=10,color=(0,255,255))
                     thumb_X=screen_width/frame_width*x
                     thumb_Y=screen_height/frame_height*y
                     if abs(index_Y-thumb_Y)<20:
                         pyg.click()
-                        pyg.sleep(1)
-                    elif abs(index_Y-thumb_Y)<100:
-                        pyg.moveTo(index_X,index_Y)    
+                        pyg.sleep(1)   
     cv2.imshow('Virtual Mouse', frame)
     cv2.waitKey(1)
